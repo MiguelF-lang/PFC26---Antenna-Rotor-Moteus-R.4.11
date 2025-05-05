@@ -15,4 +15,4 @@
 
 # **Contribuições**
 
-#### Sinta-se à vontade para contribuir com melhorias ou correções. Se tiver alguma sugestão, basta abrir um issue ou pull request.
+#### Sinta-se à vontade para contribuir com melhorias ou sugestões. Se tiver alguma sugestão, basta abrir um issue ou pull request.

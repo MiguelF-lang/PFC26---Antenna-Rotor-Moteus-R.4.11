@@ -7,6 +7,7 @@
 # **Descrição**
 
 #### O sistema integra o software Gpredict com dois motores Moteus r4.11, permitindo o controlo preciso da orientação da antena para garantir que ela esteja sempre alinhada com o satélite em tempo real.
+#### Este sistema foi todo desenvolvido em Python
 
 # **Relatório Técnico de Progresso**
 

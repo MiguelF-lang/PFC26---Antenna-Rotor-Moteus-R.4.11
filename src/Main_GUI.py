@@ -19,14 +19,14 @@ estado_motores = {
     "az_enabled": False,
     "el_enabled": False,
     "az_pos": 0.0,
-    "el_pos": 0.0,
+    "el_pos": -0.285,
 }
 
 def graus_para_voltas_azimute(graus):
     return round(graus / 360.0, 3)
 
 def graus_para_voltas_elevacao(graus):
-    return round(-0.25 - (graus / 180.0) * 0.5, 3)
+    return round(-0.285 - (graus / 180.0) * 0.5, 3)
 
 async def loop_motor(controller, queue, enable_flag_name, pos_key):
     while True:

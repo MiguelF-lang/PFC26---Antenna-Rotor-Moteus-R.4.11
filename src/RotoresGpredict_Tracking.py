@@ -46,7 +46,7 @@ async def monitorar_e_mover():
 
                         azimute_rotor = round(azimute / 360.0, 3)   # 0.0 a 1.0 voltas
                         #elevacao_rotor = round(elevacao / 90, 3)  # 0.0 a 1.0 voltas (ate 90 graus)
-                        elevacao_rotor = -0.25 - (elevacao / 180.0) * 0.5
+                        elevacao_rotor = -0.285 - (elevacao / 180.0) * 0.5
 
                         # Envia comandos para os dois motores sempre
                         await set_motor_position(azimute_motor, azimute_rotor)

@@ -1,18 +1,51 @@
-# **Projeto de Seguimento de Satélites**
+# **Satellite Tracking System**
 
-### Este repositório contém o código e a documentação técnica de um projeto de seguimento automático de satélites, desenvolvido para controlar um sistema de antena com Motores Moteus r4.11. 
+This repository contains the code and technical documentation for an automatic satellite tracking system, developed to control a dual-axis antenna using Moteus r4.11 motors.
 
-#### O objetivo do projeto é rastrear satélites em órbita baixa (LEO), usando o software Gpredict para calcular as posições dos satélites e controlar os motores de azimute e elevação da antena.
+## **Overview**
 
-# **Descrição**
+The goal of the project is to track low Earth orbit (LEO) satellites in real-time, using the Gpredict software to calculate satellite positions and command the azimuth and elevation motors accordingly.  
+The entire system is implemented in Python.
 
-#### O sistema integra o software Gpredict com dois motores Moteus r4.11, permitindo o controlo preciso da orientação da antena para garantir que ela esteja sempre alinhada com o satélite em tempo real.
-#### Este sistema foi todo desenvolvido em Python
+## **System Architecture**
 
-# **Relatório Técnico de Progresso**
+This project integrates:
 
-#### O relatório técnico completo de Progresso, que detalha o desenvolvimento do projeto, a arquitetura do sistema, os resultados alcançados e planos futuros, encontra-se disponível no repositório!
+- **Gpredict** for satellite position tracking and rotor control through the `rotctld` protocol.
+- **Moteus r4.11** motors for precise azimuth and elevation control.
+- A **custom Python GUI** for manual testing and debugging of motor positions.
+- A **BNO055 sensor** for automatic north correction, ensuring consistent azimuth reference regardless of base orientation.
 
-# **Contribuições**
+## **BNO055 Integration – Automatic North Correction**
 
-#### Sinta-se à vontade para contribuir com melhorias ou sugestões. Se tiver alguma sugestão, basta abrir um issue ou pull request.
+A BNO055 USB Stick sensor is used to provide real-time heading data. This heading is used to compensate for any rotational misalignment of the rotor base, allowing the azimuth control to always be referenced to true north.
+
+When using Gpredict or the manual GUI, this heading compensation ensures consistent behavior—even if the antenna base is rotated or repositioned. The correction is handled automatically by adjusting the azimuth motor’s position in software based on the current BNO heading.
+
+## **Technical Progress Report**
+
+A complete technical progress report is available in the repository. It includes:
+
+- System design and architecture  
+- Implementation details  
+- Results and testing procedures  
+- Future improvements  
+
+## **Getting Started**
+
+To use this system, ensure you have:
+
+- Python 3.8+  
+- A Moteus-compatible CAN interface (e.g., fdcanusb)  
+- BNO055 USB Stick connected and recognized (e.g., `/dev/ttyACM1`)  
+- Gpredict installed and configured to communicate with `rotctld`
+- This project is primarily developed and tested on Linux, but it is also compatible with Windows
+
+## **Contributing**
+
+Feel free to contribute improvements or suggestions.  
+You can open an issue or submit a pull request if you have ideas or enhancements to share.
+
+---
+
+Made with 💡 and a passion for antennas and embedded systems.

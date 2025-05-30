@@ -9,7 +9,7 @@ from bno055_usb_stick_py import BnoUsbStick
 #python -m moteus_gui.tview --target 2
 
 HOST = "localhost"
-PORT = 4533
+PORT = 4533             #Rotctl by default Port
 
 MOTEUS_AZIMUTE_ID = 1
 MOTEUS_ELEVACAO_ID = 2
@@ -19,14 +19,14 @@ elevacao_motor = moteus.Controller(id=MOTEUS_ELEVACAO_ID)
 
 # Estado partilhado
 estado_bno = {
-    "heading_offset": 0.0  # heading real (em voltas)
+    "heading_offset": 0.0  # real heading (em voltas)
 }
 
 def graus_para_voltas_azimute(graus):
-    return round(graus / 360.0, 3)
+    return round(graus / 360.0, 3)                   #Moteus rotors receive unitary positions as in 1 = 360 deg.
 
 def graus_para_voltas_elevacao(graus):
-    return round(-0.25 - (graus / 180.0) * 0.5, 3)
+    return round(-0.285 - (graus / 180.0) * 0.5, 3)  #The Offset is required because of our personal assembly - it will be different with different Rotor assemblies
 
 async def set_motor_position(controller, position):
     await controller.set_position(
@@ -40,11 +40,11 @@ async def set_motor_position(controller, position):
 def iniciar_bno_thread():
     def bno_task():
         try:
-            stick = BnoUsbStick(port="/dev/ttyACM1")  # ajusta se necessário
+            stick = BnoUsbStick(port="/dev/ttyACM1")  # Forcing the Port ACM1 (My personal use case)
             print("Using BNO port:", stick.port_name)
-            stick.write_register(0x3D, 0b00001100)
+            stick.write_register(0x3D, 0b00001100)    # Setting the Operation Mode '0x3D' to NDOF '0b00001100' (Nine Deg. of Freedom)
             sleep(0.1)
-            stick.activate_streaming()
+            stick.activate_streaming()                
 
             for packet in stick.recv_streaming_generator(num_packets=-1):
                 heading = packet.euler[0]  # 0–360°
@@ -60,7 +60,7 @@ def iniciar_bno_thread():
 
 async def monitorar_e_mover():
     try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:   # Connecting with Rotctl - Hamlib
             client.connect((HOST, PORT))
             await azimute_motor.set_stop()
             await elevacao_motor.set_stop()
@@ -75,7 +75,7 @@ async def monitorar_e_mover():
                         azimute = float(values[0])
                         elevacao = float(values[1])
 
-                        # Corrige o azimute com base no heading atual
+                        # Fixing Azimuth Offset to receive valid coordinates in case the rotors base change position
                         azimute_voltas = graus_para_voltas_azimute(azimute)
                         heading_offset = estado_bno["heading_offset"]
                         azimute_corrigido = azimute_voltas - heading_offset

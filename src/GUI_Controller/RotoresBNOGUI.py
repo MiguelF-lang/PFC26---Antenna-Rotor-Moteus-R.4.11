@@ -23,15 +23,15 @@ estado_motores = {
     "az_enabled": False,
     "el_enabled": False,
     "az_pos": 0.0,
-    "el_pos": -0.285,
+    "el_pos": -0.285,                                   #The Offset is required because of our personal assembly - it will be different with different Rotor assemblies
     "heading_ref": None,
 }
 
 def graus_para_voltas_azimute(graus):
-    return round(graus / 360.0, 3)
+    return round(graus / 360.0, 3)                      #Moteus rotors receive unitary positions as in 1 = 360 deg.
 
 def graus_para_voltas_elevacao(graus):
-    return round(-0.285 - (graus / 180.0) * 0.5, 3)
+    return round(-0.285 - (graus / 180.0) * 0.5, 3)     #The Offset is required because of our personal assembly - it will be different with different Rotor assemblies
 
 async def loop_motor(controller, queue, enable_flag_name, pos_key):
     while True:
@@ -128,19 +128,19 @@ def iniciar_interface(loop):
 
 def iniciar_bno_loop(loop):
     def bno_task():
-        stick = BnoUsbStick(port="/dev/ttyACM1")  # forçar a porta
+        stick = BnoUsbStick(port="/dev/ttyACM1")            # Forcing the Port ACM1 (My personal use case)
         print("Using BNO port:", stick.port_name)
-        stick.write_register(0x3D, 0b00001100)
+        stick.write_register(0x3D, 0b00001100)              # Setting the Operation Mode '0x3D' to NDOF '0b00001100' (Nine Deg. of Freedom)
         sleep(0.1)
         stick.activate_streaming()
 
         for packet in stick.recv_streaming_generator(num_packets=-1):
             heading = packet.euler[0]  # 0-360°
 
-            # Converter heading em voltas e inverter (para "corrigir" a direção)
+            # Converting heading in 'laps' (to "fix" the direction change afterwards) 
             offset_voltas = graus_para_voltas_azimute(heading)
 
-            # Atualizar posição do azimute para compensar rotação
+            # Updating azimuth position to compensate direction changes.
             nova_pos = -offset_voltas
             estado_motores["az_pos"] = nova_pos
             loop.call_soon_threadsafe(lambda: queue_az.put_nowait(nova_pos))

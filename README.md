@@ -5,7 +5,7 @@ This repository contains the code and technical documentation for an automatic s
 ## **Overview**
 
 The goal of the project is to track low Earth orbit (LEO) satellites in real-time, using the Gpredict software to calculate satellite positions and command the azimuth and elevation motors accordingly.  
-The entire system is implemented in Python.
+The entire system is implemented in Python, as it is easy to extend and integrate additional modules for future features.
 
 ## **System Architecture**
 

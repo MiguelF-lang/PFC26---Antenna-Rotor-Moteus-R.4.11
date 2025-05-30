@@ -4,6 +4,10 @@ import tkinter as tk
 from tkinter import ttk
 import moteus
 
+###Plain Program that Allows Rotors Control via a super basic GUI 
+
+###Mainly used for testing, debugging, and fun motions... as it provides more speed and control of angles
+
 #python -m moteus_gui.tview --target 2
 
 MOTEUS_AZIMUTE_ID = 1

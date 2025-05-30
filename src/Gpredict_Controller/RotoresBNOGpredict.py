@@ -5,6 +5,12 @@ import threading
 from time import sleep
 from bno055_usb_stick_py import BnoUsbStick
 
+###Program that Allows Rotors Control via Gpredict and Compensates directional changes of the Rotors Base 
+
+###This aims to achieve real-time satellite tracking while on a moving station 
+
+##For this, BNO055 STICK was integrated
+
 ##rotctld -m 1 -s 19200 #baudrate
 #python -m moteus_gui.tview --target 2
 

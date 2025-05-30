@@ -6,6 +6,12 @@ import moteus
 from time import sleep
 from bno055_usb_stick_py import BnoUsbStick
 
+###Program that Allows Rotors Control via a super basic GUI and Compensates directional changes of the Rotors base.
+
+###Mainly used for testing, debugging, and fun motions... as it provides more speed and control of angles
+
+
+
 # IDs dos motores
 MOTEUS_AZIMUTE_ID = 1
 MOTEUS_ELEVACAO_ID = 2

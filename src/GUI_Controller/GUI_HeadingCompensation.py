@@ -29,7 +29,7 @@ estado_motores = {
     "az_enabled": False,
     "el_enabled": False,
     "az_pos": 0.0,
-    "el_pos": -0.285,                                   #The Offset is required because of our personal assembly - it will be different with different Rotor assemblies
+    "el_pos": -0.285,                                   #The Offset is required because of our personal assembly - it will be different for other Rotor assemblies
     "heading_ref": None,
 }
 

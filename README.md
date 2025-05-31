@@ -43,6 +43,8 @@ To use this system, ensure you have:
 
 ## **Contributing**
 
+This project was developed as part of a Final Bachelor of Science (BSc) Project in **Engenharia Eletrónica Telecomunicações e Computadores** at **ISEL**. 
+
 Feel free to contribute improvements or suggestions.  
 You can open an issue or submit a pull request if you have ideas or enhancements to share.
 

@@ -32,7 +32,7 @@ def graus_para_voltas_azimute(graus):
     return round(graus / 360.0, 3)                   #Moteus rotors receive unitary positions as in 1 = 360 deg.
 
 def graus_para_voltas_elevacao(graus):
-    return round(-0.285 - (graus / 180.0) * 0.5, 3)  #The Offset is required because of our personal assembly - it will be different with different Rotor assemblies
+    return round(-0.285 - (graus / 180.0) * 0.5, 3)  #The Offset is required because of our personal assembly - it will be different for other Rotor assemblies
 
 async def set_motor_position(controller, position):
     await controller.set_position(

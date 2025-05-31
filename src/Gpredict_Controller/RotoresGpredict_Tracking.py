@@ -4,8 +4,7 @@ import socket
 
 ###Plain Program that Allows Rotors Control via Gpredict - This allows the real-time tracking of satellites 
 
-##Requirement: Starting neutral positions of the rotors must be True North.
-
+##Requirement: The initial (neutral) position of the rotors must be physically aligned with True North (per standard azimuth-elevation tracking geometry).
 
 ##rotctld -m 1 -s 19200 #baudrate
 #python -m moteus_gui.tview --target 2

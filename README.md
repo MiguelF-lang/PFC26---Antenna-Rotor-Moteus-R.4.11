@@ -1,6 +1,6 @@
 # **Satellite Tracking System**
 
-This repository contains the code and technical documentation for an automatic satellite tracking system, developed to control a dual-axis antenna using Moteus r4.11 motors.
+This repository contains the code and technical documentation for an automatic satellite tracking system, developed to control a dual-axis Rotor using two Moteus r4.11 motors.
 
 ## **Overview**
 

@@ -48,4 +48,4 @@ You can open an issue or submit a pull request if you have ideas or enhancements
 
 ---
 
-Made with 💡 and a passion for antennas and embedded systems.
+Made with 💡 and a passion for satellite communications and embedded systems.

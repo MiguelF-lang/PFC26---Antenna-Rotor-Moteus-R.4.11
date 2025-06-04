@@ -48,6 +48,11 @@ This project was developed as part of a Final Bachelor of Science (BSc) Project 
 Feel free to contribute improvements or suggestions.  
 You can open an issue or submit a pull request if you have ideas or enhancements to share.
 
+## 📽️ Demo Video
+
+[![Watch the demo](https://www.youtube.com/watch?v=8bVDuRtAQq8&ab_channel=MiguelF-Lang)
+
+
 ---
 
 Made with 💡 and a passion for satellite communications and embedded systems.

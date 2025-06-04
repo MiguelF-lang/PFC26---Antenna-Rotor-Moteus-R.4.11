@@ -50,7 +50,7 @@ You can open an issue or submit a pull request if you have ideas or enhancements
 
 ## 📽️ Demo Video
 
-[![Watch the demo](https://img.youtube.com/vi/8bVDuRtAQq8/0.jpg)]([https://www.youtube.com/watch?v=abc123XYZ78](https://www.youtube.com/watch?v=8bVDuRtAQq8&ab_channel=MiguelF-Lang))
+[![Watch the demo](https://www.youtube.com/watch?v=8bVDuRtAQq8&ab_channel=MiguelF-Lang)
 
 ---
 
